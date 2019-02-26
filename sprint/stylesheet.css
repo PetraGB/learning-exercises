@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+
+header {
+    border: 1px tomato solid;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+#logo {
+    content: url(assets/sprint.svg);
+    height: 50px;
+    float: left;
+}
+
+#hamburger {
+    content: url(assets/hamburgermenu.svg);
+    height: 50px;
+    float: right;
+}
+
+#wel {
+    /* background-image: url(assets/reichstag.jpg);
+    background-size: cover; */
+    position: relative;
+    height: 600px;
+    font-family: "Georgia", serif;
+    text-align: center;
+}
+
+#reichstag {
+    width: 100%;
+}
+
+#welText {
+    font-style: italic;
+    color: white;
+    font-size: 2.5em;
+    position: absolute;
+    top: 40%;
+    /* text-align: center; */
+}
+
+#welButton {
+    color: orange;
+    font-size: 2em;
+    position: absolute;
+}
