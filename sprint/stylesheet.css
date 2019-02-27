@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    border: 1px tomato solid;
+    /* border: 1px tomato solid; */
     padding: 10px;
     overflow: hidden;
     position: relative;
@@ -24,30 +24,101 @@ header {
     float: right;
 }
 
-#wel {
-    /* background-image: url(assets/reichstag.jpg);
-    background-size: cover; */
+.wel {
+    background-image: url(assets/reichstag.jpg);
+    background-size: cover;
     position: relative;
-    height: 600px;
-    font-family: "Georgia", serif;
-    text-align: center;
-}
-
-#reichstag {
+    padding-bottom: 60%;
     width: 100%;
-}
-
-#welText {
+    height: 0;
+    /* font-family: "Georgia", serif;
+    text-align: center;
     font-style: italic;
     color: white;
-    font-size: 2.5em;
+    font-size: 3em;
     position: absolute;
-    top: 40%;
-    /* text-align: center; */
+    text-align: center; */
+}
+/*
+#reichstag {
+    width: 100%;
+} */
+
+.wel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+/*
+.wel div {
+    position: absolute;
+    text-align: center;
+} */
+
+#welText {
+    font-family: "Georgia", serif;
+    text-align: center;
+    font-style: italic;
+    color: white;
+    font-size: 2.2em;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+#welText p {
+    margin: 0;
 }
 
 #welButton {
-    color: orange;
-    font-size: 2em;
-    position: absolute;
+    color: darkorange;
+    background-color: gold;
+    width: 180px;
+    height: 40px;
+    border: 4px darkorange solid;
+    border-radius: 20px;
+    font-size: 25px;
+    padding: 3px;
+    margin-top: 10px;
+    /* margin-left: auto;
+    margin-right: auto; */
+    display: inline-block;
+    font-size: 22px;
+    /* position: absolute; */
+}
+
+.information {
+    background-color: lightgrey;
+    padding: 10px;
+    /* position: relative; */
+}
+
+article {
+    display: inline-block;
+    /* position: absolute; */
+    width: 50%;
+}
+
+.icons {
+    width: 40px;
+    display: inline-block;
+    margin: 10px;
+}
+
+article h2 {
+    display: inline-block;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+article p {
+    font-size: 1em;
+    margin: 0;
+    /* display: inline-block; */
 }
