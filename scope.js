@@ -11,7 +11,7 @@ function waitThenRun(thisSlower) {
 }
 
 function highNumber(x) {
-    if (x <= 0 || x == NaN) {
+    if (x <= 0 || isNaN(x)) {
         return "ERROR";
     } else if (x >= 1000000) {
         return x;
@@ -21,7 +21,7 @@ function highNumber(x) {
     }
 }
 
-function getTotaler(n) {
+function getTotaler() {
     var total = 0;
     return function(n) {
         return (total += n);
