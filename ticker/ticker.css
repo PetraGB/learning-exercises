@@ -1,0 +1,32 @@
+/* Do not use margin, use padding to get links distance */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+#ticker {
+    position: relative;
+    overflow-x: hidden;
+    height: 1.6em;
+    border-bottom: 2px solid black;
+}
+
+/* move this not per link */
+#headlines {
+    position: absolute;
+    left: 50%;
+    /* start at 50% to test, then change to 100 at the end */
+    white-space: nowrap;
+    font-size: 0;
+}
+
+#headlines a {
+    padding-right: 40px;
+    font-family: georgia, serif;
+    font-size: 18px;
+    color: black;
+}
