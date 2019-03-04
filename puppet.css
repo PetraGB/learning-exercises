@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+#head {
+    border: 3px solid black;
+    height: 150px;
+    width: 150px;
+    border-radius: 80px;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+}
+
+#body {
+    background-color: black;
+    height: 250px;
+    width: 3px;
+    position: absolute;
+    top: 250px;
+    left: 270px;
+}
+
+#legs {
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    top: 527px;
+    left: 196px;
+    transform: rotate(45deg);
+}
+
+#armLeft {
+    background-color: black;
+    height: 3px;
+    width: 150px;
+    position: absolute;
+    top: 350px;
+    left: 122px;
+    transform-origin: right;
+    transform: rotate(30deg);
+}
+
+#armRight {
+    background-color: black;
+    height: 3px;
+    width: 150px;
+    position: absolute;
+    top: 350px;
+    left: 272px;
+    transform-origin: left;
+    transform: rotate(-50deg);
+}
