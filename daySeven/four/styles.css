@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+#bigBox {
+    height: 200px;
+    width: 200px;
+    background: yellow;
+    position: relative;
+    left: 45%;
+    top: 100px;
+}
+
+#smallBox {
+    height: 50px;
+    width: 50px;
+    background: green;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
