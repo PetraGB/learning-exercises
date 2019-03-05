@@ -11,7 +11,7 @@ function changeText(sel) {
 
 function turnIntoArray(classy) {
     var classArray = [];
-    var classOrigin = document.getElementByClassName(classy);
+    var classOrigin = document.getElementsByClassName(classy);
     for (var i = 0; i < classOrigin.length; i++) {
         classArray.push(classOrigin[i]);
     }
