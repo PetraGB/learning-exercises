@@ -10,7 +10,7 @@ hamburger.addEventListener("click", function(a) {
     document.documentElement.classList.add("on");
 });
 
-x.addEventListener("click", function(a) {
+xButton.addEventListener("click", function(a) {
     document.documentElement.classList.remove("on");
 });
 
