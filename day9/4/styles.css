@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* margin: 0; */
+}
+
+#container {
+    display: flex;
+}
+
+.big {
+    width: 200px;
+    height: 200px;
+    margin: 2px;
+    position: flex;
+}
+
+.small {
+    width: 100px;
+    height: 100px;
+}
+
+#grey {
+    background: grey;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#black {
+    background: black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#blue {
+    background: blue;
+    display: flex;
+    align-items: flex-end;
+}
+
+#purple {
+    background: purple;
+    display: flex;
+}
+
+#orange {
+    background: orange;
+}
+
+#yellow {
+    background: yellow;
+}
+
+#green {
+    background: green;
+}
+
+#pink {
+    background: pink;
+}

@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    background: orange;
+    height: 70px;
+    /* width: 100%; */
+}
+
+footer {
+    background: pink;
+    height: 30px;
+    /* width: 100%; */
+}
