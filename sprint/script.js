@@ -22,3 +22,16 @@ menu.addEventListener("click", function(a) {
 fullMenu.addEventListener("click", function(a) {
     document.documentElement.classList.remove("on");
 });
+
+// ----------------------------------
+
+var welcome = $("#welcome");
+var cardX = $("#cardX");
+
+setTimeout(function() {
+    welcome.css("visibility", "visible");
+}, 1000);
+
+cardX.on("click", function() {
+    welcome.css("visibility", "hidden");
+});
