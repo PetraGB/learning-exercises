@@ -19,6 +19,9 @@ field.on("input", function() {
             if (results.length == 0) {
                 allResults = "<div class='none'> no results </div>";
             }
+            if (written == "") {
+                allResults = "";
+            }
             resultContainer.html(allResults);
         }
     });
