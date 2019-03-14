@@ -5,13 +5,16 @@ field.on("input", function() {
     var written = field.val();
     var xhr;
 
+    if (xhr != undefined) {
+        xhr.abort();
+    }
+
     xhr = $.ajax({
         url: "https://flame-egg.glitch.me/",
         data: {
             q: written
         },
         success: function(results) {
-            xhr.abort();
             var allResults = "";
             for (var i = 0; i < results.length; i++) {
                 allResults += "<div class='result'>" + results[i] + "</div>";
