@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.board {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.hole {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    box-shadow: inset 0px 10px blue, 0px 10px blue;
+}
+
+.slot.player1 .hole {
+    background-color: red;
+}
+
+.slot.player2 .hole {
+    background-color: yellow;
+}
+
+.victory {
+    visibility: hidden;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 200px;
+    font-family: georgia, serif;
+    text-align: center;
+    font-size: 200px;
+}
+
+.victory.player1 {
+    visibility: visible;
+    color: red;
+}
+
+.victory.player2 {
+    visibility: visible;
+    color: yellow;
+}
