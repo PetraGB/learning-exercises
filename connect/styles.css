@@ -32,7 +32,7 @@ body {
     position: fixed;
     height: 100%;
     width: 100%;
-    top: 200px;
+    top: 0;
     font-family: georgia, serif;
     text-align: center;
     font-size: 200px;
