@@ -2,13 +2,21 @@ var currentPlayer = "player1";
 var allColumns = $(".column");
 var coin = $(".coin");
 
-allColumns.on("mousemove", function(e) {
-    coin.css({ left: e.pageX - 50 + "px" });
-});
+function followMouse() {
+    allColumns.on("mousemove", function(e) {
+        coin.css({ left: e.pageX - 50 + "px" });
+    });
+}
+followMouse();
 
 $(".column").on("click", function(e) {
     var curColumn = $(e.currentTarget);
     var chosenColumnSlots = curColumn.find(".slot");
+
+    // so x of coin is aligned with column
+    var endX = curColumn.offset().left;
+    allColumns.off("mousemove");
+    coin.css({ left: endX + "px" });
 
     // goes through slots from lowest to highest to check for lowest empty
     for (var i = 5; i >= 0; i--) {
@@ -21,17 +29,9 @@ $(".column").on("click", function(e) {
         }
     }
 
-    coin.addClass("moving");
-
-    // trying to get the animation to stop when coin hits the slot
-
-    // console.log(chosenColumnSlots.eq(i).offset().top);
-    // console.log(coin.offset().top);
-    //
-    // if (coin.offset().top == chosenColumnSlots.eq(i).offset().top) {
-    //     console.log("do I ever run?");
-    //     $(".coin").removeClass("moving");
-    // }
+    // so coin stops at spot
+    var endY = chosenColumnSlots.eq(i).offset().top;
+    drop(endY);
 
     // ----- finding column index to pass to diagonal finders
     curColumn.addClass("colIndex");
@@ -43,28 +43,37 @@ $(".column").on("click", function(e) {
         }
     }
 
-    // sends all possible lines as arrays to check for victory
-    if (victoryCheck($(".row" + i))) {
-        return achievementUnlocked(currentPlayer);
-    } else if (victoryCheck(curColumn.find(".slot"))) {
-        return achievementUnlocked(currentPlayer);
-    } else if (victoryCheck(getDiagonalUp(a, i))) {
-        return achievementUnlocked(currentPlayer);
-    } else if (victoryCheck(getDiagonalDown(a, i))) {
-        return achievementUnlocked(currentPlayer);
+    // makes coin fall and have everything that happens after
+    function drop(endY) {
+        coin.animate({ top: "+=" + endY }, 1000, function() {
+            coin.css({ top: "-=" + endY });
+            chosenColumnSlots.eq(i).addClass(currentPlayer);
+
+            // sends all possible lines as arrays to check for victory
+            if (victoryCheck($(".row" + i))) {
+                followMouse();
+                return achievementUnlocked(currentPlayer);
+            } else if (victoryCheck(curColumn.find(".slot"))) {
+                followMouse();
+                return achievementUnlocked(currentPlayer);
+            } else if (victoryCheck(getDiagonalUp(a, i))) {
+                followMouse();
+                return achievementUnlocked(currentPlayer);
+            } else if (victoryCheck(getDiagonalDown(a, i))) {
+                followMouse();
+                return achievementUnlocked(currentPlayer);
+            }
+
+            coin.removeClass(currentPlayer);
+
+            // only changes player if click was on column with an empty slot
+            if (i >= 0) {
+                changePlayer();
+            }
+            followMouse();
+            coin.addClass(currentPlayer);
+        });
     }
-
-    coin.one("transitionend", function(e) {
-        chosenColumnSlots.eq(i).addClass(currentPlayer);
-        coin.removeClass(currentPlayer).removeClass("moving");
-
-        // only changes player if click was on column with an empty slot
-        if (i >= 0) {
-            changePlayer();
-        }
-        coin.addClass(currentPlayer);
-        console.log("i'm working");
-    });
 });
 
 function changePlayer() {

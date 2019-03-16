@@ -47,12 +47,6 @@ body {
     background-color: yellow;
 }
 
-.coin.moving {
-    z-index: 1;
-    transform: translateY(600%);
-    transition-duration: 1s;
-}
-
 .victory {
     visibility: hidden;
     position: fixed;
