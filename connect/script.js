@@ -1,21 +1,11 @@
 var currentPlayer = "player1";
 var allColumns = $(".column");
 
-function clear() {
-    for (var i = 0; i < allColumns.length; i++) {
-        allColumns
-            .eq(i)
-            .find(".slot")
-            .removeClass("player1")
-            .removeClass("player2");
-    }
-}
-
 $(".column").on("click", function(e) {
     var curColumn = $(e.currentTarget);
     var chosenColumnSlots = curColumn.find(".slot");
-    var board = $(".board");
 
+    // goes through slots from lowest to highest to check for lowest empty
     for (var i = 5; i >= 0; i--) {
         if (
             !chosenColumnSlots.eq(i).hasClass("player1") &&
@@ -26,19 +16,17 @@ $(".column").on("click", function(e) {
         }
     }
 
-    // ----- finding column index
+    // ----- finding column index to pass to diagonal finders
     curColumn.addClass("colIndex");
 
     for (var a = 0; a < allColumns.length; a++) {
-        // console.log(allColumns.eq(i).hasClass("colIndex"));
         if (allColumns.eq(a).hasClass("colIndex")) {
             curColumn.removeClass("colIndex");
             break;
         }
     }
 
-    // ------- end finding index
-
+    // sends all possible lines as arrays to check for victory
     if (victoryCheck($(".row" + i))) {
         return achievementUnlocked(currentPlayer);
     } else if (victoryCheck(curColumn.find(".slot"))) {
@@ -49,13 +37,7 @@ $(".column").on("click", function(e) {
         return achievementUnlocked(currentPlayer);
     }
 
-    $(".column")
-        .find(".diagonalUp")
-        .removeClass(".diagonalUp");
-    $(".column")
-        .find(".diagonalDown")
-        .removeClass(".diagonalDown");
-
+    // only changes player if click was on column with an empty slot
     if (i >= 0) {
         changePlayer();
     }
@@ -69,12 +51,14 @@ function changePlayer() {
     }
 }
 
+// checks array of slots for victory, true or false
+var howManyConnect = 4;
 function victoryCheck(slots) {
     var count = 0;
     for (var i = 0; i < slots.length; i++) {
         if (slots.eq(i).hasClass(currentPlayer)) {
             count++;
-            if (count >= 4) {
+            if (count >= howManyConnect) {
                 return true;
             }
         } else {
@@ -83,6 +67,7 @@ function victoryCheck(slots) {
     }
 }
 
+// shows victory screen
 function achievementUnlocked(currentPlayer) {
     $(".victory")
         .addClass(currentPlayer)
@@ -92,10 +77,22 @@ function achievementUnlocked(currentPlayer) {
         });
 }
 
+// to reset the player classes of all slots
+function clear() {
+    for (var i = 0; i < allColumns.length; i++) {
+        allColumns
+            .eq(i)
+            .find(".slot")
+            .removeClass("player1")
+            .removeClass("player2");
+    }
+}
+
 $("button").on("click", function() {
     clear();
 });
 
+// functions to get array of all slots in diagonals
 function getDiagonalUp(column, row) {
     $(".column")
         .find(".diagonalUp")
@@ -119,7 +116,7 @@ function getDiagonalUp(column, row) {
         columnUp++;
     }
     for (var i = 0; i <= allColumns.length; i++) {
-        if (rowDown < 0) {
+        if (columnDown < 0) {
             break;
         }
         allColumns
@@ -143,7 +140,7 @@ function getDiagonalDown(column, row) {
     var columnDown = column;
 
     for (var i = 0; i <= allColumns.length; i++) {
-        if (rowDown < 0 || columnUp < 0) {
+        if (rowDown < 0) {
             break;
         }
         allColumns
