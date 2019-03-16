@@ -1,5 +1,10 @@
 var currentPlayer = "player1";
 var allColumns = $(".column");
+var coin = $(".coin");
+
+allColumns.on("mousemove", function(e) {
+    coin.css({ left: e.pageX - 50 + "px" });
+});
 
 $(".column").on("click", function(e) {
     var curColumn = $(e.currentTarget);
@@ -11,10 +16,22 @@ $(".column").on("click", function(e) {
             !chosenColumnSlots.eq(i).hasClass("player1") &&
             !chosenColumnSlots.eq(i).hasClass("player2")
         ) {
-            chosenColumnSlots.eq(i).addClass(currentPlayer);
+            // chosenColumnSlots.eq(i).addClass(currentPlayer);
             break;
         }
     }
+
+    coin.addClass("moving");
+
+    // trying to get the animation to stop when coin hits the slot
+
+    // console.log(chosenColumnSlots.eq(i).offset().top);
+    // console.log(coin.offset().top);
+    //
+    // if (coin.offset().top == chosenColumnSlots.eq(i).offset().top) {
+    //     console.log("do I ever run?");
+    //     $(".coin").removeClass("moving");
+    // }
 
     // ----- finding column index to pass to diagonal finders
     curColumn.addClass("colIndex");
@@ -37,10 +54,17 @@ $(".column").on("click", function(e) {
         return achievementUnlocked(currentPlayer);
     }
 
-    // only changes player if click was on column with an empty slot
-    if (i >= 0) {
-        changePlayer();
-    }
+    coin.one("transitionend", function(e) {
+        chosenColumnSlots.eq(i).addClass(currentPlayer);
+        coin.removeClass(currentPlayer).removeClass("moving");
+
+        // only changes player if click was on column with an empty slot
+        if (i >= 0) {
+            changePlayer();
+        }
+        coin.addClass(currentPlayer);
+        console.log("i'm working");
+    });
 });
 
 function changePlayer() {
