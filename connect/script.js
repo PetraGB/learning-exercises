@@ -137,8 +137,9 @@ function achievementUnlocked(currentPlayer) {
 
 // to reset the player classes of all slots
 function clear() {
-    for (var i = 0; i < allColumns.length; i++) {
-        $(".column")
+    var latestCols = $(".column");
+    for (var i = 0; i < latestCols.length; i++) {
+        latestCols
             .eq(i)
             .find(".slot")
             .removeClass("player1")
@@ -146,7 +147,7 @@ function clear() {
     }
 }
 
-$("button").on("click", function() {
+$("#reset").on("click", function() {
     clear();
 });
 
@@ -233,6 +234,13 @@ function refreshBoard(cu, ru, nu) {
     makeClickable();
     followMouse();
 }
+
+$("#newBoard").on("click", function() {
+    var col = $(".colChoice").val();
+    var row = $(".rowChoice").val();
+    var conn = $(".connChoice").val();
+    refreshBoard(col, row, conn);
+});
 
 // function colorDiagonalUp(column, row) {
 //     var diagonal;
