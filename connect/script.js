@@ -58,9 +58,14 @@ function makeClickable() {
 
         // ----- finding column index to pass to diagonal finders
         curColumn.addClass("colIndex");
+        console.log($(".colIndex"));
 
         for (var a = 0; a < allColumns.length; a++) {
-            if (allColumns.eq(a).hasClass("colIndex")) {
+            if (
+                $(".column")
+                    .eq(a)
+                    .hasClass("colIndex")
+            ) {
                 curColumn.removeClass("colIndex");
                 break;
             }
@@ -153,20 +158,20 @@ $("#reset").on("click", function() {
 
 // functions to get array of all slots in diagonals
 function getDiagonalUp(column, row) {
-    $(".column")
-        .find(".diagonalUp")
-        .removeClass("diagonalUp");
+    var digColUp = $(".column");
+
+    digColUp.find(".diagonalUp").removeClass("diagonalUp");
 
     var rowUp = row;
     var columnUp = column;
     var rowDown = row;
     var columnDown = column;
 
-    for (var i = 0; i <= allColumns.length; i++) {
+    for (var i = 0; i <= digColUp.length; i++) {
         if (rowUp < 0) {
             break;
         }
-        allColumns
+        digColUp
             .eq(columnUp)
             .find(".slot")
             .eq(rowUp)
@@ -174,11 +179,11 @@ function getDiagonalUp(column, row) {
         rowUp--;
         columnUp++;
     }
-    for (var i = 0; i <= allColumns.length; i++) {
+    for (var i = 0; i <= digColUp.length; i++) {
         if (columnDown < 0) {
             break;
         }
-        allColumns
+        digColUp
             .eq(columnDown)
             .find(".slot")
             .eq(rowDown)
@@ -190,19 +195,19 @@ function getDiagonalUp(column, row) {
 }
 
 function getDiagonalDown(column, row) {
-    $(".column")
-        .find(".diagonalDown")
-        .removeClass("diagonalDown");
+    var digColDown = $(".column");
+
+    digColDown.find(".diagonalDown").removeClass("diagonalDown");
     var rowDown = row;
     var columnUp = column;
     var rowUp = row;
     var columnDown = column;
 
-    for (var i = 0; i <= allColumns.length; i++) {
+    for (var i = 0; i <= digColDown.length; i++) {
         if (rowDown < 0) {
             break;
         }
-        allColumns
+        digColDown
             .eq(columnUp)
             .find(".slot")
             .eq(rowDown)
@@ -210,11 +215,11 @@ function getDiagonalDown(column, row) {
         rowDown++;
         columnUp++;
     }
-    for (var i = 0; i <= allColumns.length; i++) {
+    for (var i = 0; i <= digColDown.length; i++) {
         if (rowUp < 0 || columnDown < 0) {
             break;
         }
-        allColumns
+        digColDown
             .eq(columnDown)
             .find(".slot")
             .eq(rowUp)
@@ -224,8 +229,6 @@ function getDiagonalDown(column, row) {
     }
     return $(".column").find(".diagonalDown");
 }
-
-// -------------------- Testing and BS --------
 
 function refreshBoard(cu, ru, nu) {
     howManyConnect = nu;
@@ -241,6 +244,8 @@ $("#newBoard").on("click", function() {
     var conn = $(".connChoice").val();
     refreshBoard(col, row, conn);
 });
+
+// -------------------- Testing and BS --------
 
 // function colorDiagonalUp(column, row) {
 //     var diagonal;
