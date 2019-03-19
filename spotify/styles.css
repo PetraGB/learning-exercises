@@ -45,7 +45,7 @@ header {
 .item {
     margin: 20px;
     margin-left: 25px;
-    width: 500px;
+    width: 650px;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -67,6 +67,7 @@ header {
 
 .item .link {
     margin-right: 20px;
+    max-width: 450px;
     font-family: Palatino;
     text-decoration: none;
     font-size: 26px;

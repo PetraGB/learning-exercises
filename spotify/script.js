@@ -65,13 +65,16 @@ function getMusic() {
                     "' class='link' target='_blank'>" +
                     items[i].name +
                     "</a></div>";
-                if (items[i].genres[0]) {
-                    resultHtml +=
-                        "<div class='genre'><p>" +
-                        items[i].genres[0] +
-                        "</p></div>";
-                } else {
-                    resultHtml += "<div class='genre'><p>Who knows</p></div>";
+                if (typos == "artist") {
+                    if (items[i].genres[0]) {
+                        resultHtml +=
+                            "<div class='genre'><p>" +
+                            items[i].genres[0] +
+                            "</p></div>";
+                    } else {
+                        resultHtml +=
+                            "<div class='genre'><p>Who knows</p></div>";
+                    }
                 }
                 resultHtml += "</div>";
             }
