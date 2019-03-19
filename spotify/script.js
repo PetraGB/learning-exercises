@@ -1,4 +1,17 @@
-var results = $(".results");
+Handlebars.templates = Handlebars.templates || {};
+
+var templates = document.querySelectorAll(
+    'script[type="text/x-handlebars-template"]'
+);
+
+Array.prototype.slice.call(templates).forEach(function(script) {
+    Handlebars.templates[script.id] = Handlebars.compile(script.innerHTML);
+});
+
+/////////////////// HANDS OFF ///////////////////////////
+//
+
+var results = $("#results");
 var moreButton = $(".more");
 var whatPage = 0;
 var curSearch = "";
@@ -49,37 +62,32 @@ function getMusic() {
             if (data.total == 0) {
                 looking.append("<div>No results<div>");
             }
-            for (var i = 0; i < items.length; i++) {
-                var picture = "default.png";
-                if (items[i].images[0]) {
-                    picture = items[i].images[0].url;
-                }
 
-                resultHtml +=
-                    "<div class='block'><div class='item'><div class='picture'><a href='" +
-                    items[i].external_urls.spotify +
-                    "' target='_blank'><img src='" +
-                    picture +
-                    "'></a></div><a href='" +
-                    items[i].external_urls.spotify +
-                    "' class='link' target='_blank'>" +
-                    items[i].name +
-                    "</a></div>";
-                if (typos == "artist") {
-                    if (items[i].genres[0]) {
-                        resultHtml +=
-                            "<div class='genre'><p>" +
-                            items[i].genres[0] +
-                            "</p></div>";
-                    } else {
-                        resultHtml +=
-                            "<div class='genre'><p>Who knows</p></div>";
-                    }
+            var thisResults = data.items.map(function(thisItem) {
+                var picture = "default.png";
+                if (thisItem.images[0]) {
+                    picture = thisItem.images[0].url;
                 }
-                resultHtml += "</div>";
-            }
-            console.log(data);
-            results.append(resultHtml);
+                var genre = "";
+                if (thisItem.genres[0]) {
+                    genre = thisItem.genres[0];
+                } else {
+                    genre = "who knows";
+                }
+                return {
+                    name: thisItem.name,
+                    url: thisItem.external_urls.spotify,
+                    picture: picture,
+                    genre: genre
+                };
+            });
+
+            results.append(
+                Handlebars.templates.resultTemplate({
+                    eachItem: thisResults
+                })
+            );
+
             if (data.next != null) {
                 whatPage += 20;
                 if (location.search.indexOf("scroll=infinite") > -1) {

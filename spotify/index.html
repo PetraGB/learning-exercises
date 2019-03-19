@@ -23,12 +23,35 @@
         </div>
         <div class="looking">
         </div>
-        <div class="results"></div>
+        <div id="results">
+            <script id="resultTemplate" type="text/x-handlebars-template">
+                {{#eachItem}}
+                    <div class="block">
+                        <div class="item">
+                            <a href= {{ url }}>
+                                <div class="picture">
+                                    <img src= {{ picture }} />
+                                </div>
+                            </a>
+                            <a class="link" href= {{ url }}>
+                                {{ name }}
+                            </a>
+                        </div>
+                        <div class="genre">
+                            <p>
+                                {{ genre }}
+                            </p>
+                        </div>
+                    </div>
+                {{/eachItem}}
+            </script>
+        </div>
         <div class="pageEnd">
             <div class="more">
                 More
             </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="script.js">
         </script>
