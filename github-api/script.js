@@ -82,10 +82,14 @@ function addlisteners() {
 
                     var detailsCommit = theseCommits.map(function(thisCommit) {
                         var message = thisCommit.commit.message;
+                        var name = thisCommit.commit.author.name;
                         return {
+                            committerName: name,
                             message: message
                         };
                     });
+
+                    detailsCommit = detailsCommit.slice(0, 10);
 
                     curItem.append(
                         Handlebars.templates.details({
