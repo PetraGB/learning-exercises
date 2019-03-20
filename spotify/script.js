@@ -54,6 +54,7 @@ function getMusic() {
             offset: whatPage
         },
         success: function(data) {
+            console.log(data);
             data = data.artists || data.albums;
 
             var resultHtml = "";

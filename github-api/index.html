@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css" />
+        <title>Github shenenigans</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <div class="search-bar">
+            <input name="username" type="text" placeholder="username" autocomplete="off" />
+            <input name="password" type="password" placeholder="password" autocomplete="off" />
+            <input name="searching-for" type="text" placeholder="search user" />
+            <button id="go-button">Search</button>
+        </div>
+        <div class="results">
+            <script id="reposit" type="text/x-handlebars-template">
+                {{#repo}}
+                    <div class="repo-item">
+                        <div class="picture">
+                            <img src="{{ picture }}" />
+                        </div>
+                        <div class="info">
+                            <h2 class="name">{{ name }}</h2>
+                            <p class="sneaky">{{ username }}</p>
+                        </div>
+                    </div>
+                {{/repo}}
+            </script>
+        </div>
+        <script id="details" type="text/x-handlebars-template">
+            <div class="commits">
+                {{#commit}}
+                    <p class="message">
+                        {{ message }}
+                    </p>
+                {{/commit}}
+            </div>
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
