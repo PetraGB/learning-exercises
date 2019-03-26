@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+    font-family: Georgia;
+}
+
+body {
+    margin: 0;
+    background-color: #f1fcfd;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    background-color: #4d6de3;
+}
+
+.search-bar * {
+    font-size: 18px;
+    background-color: #f1fcfd;
+}
+
+#go-button {
+    height: 30px;
+    background-color: #c7eeff;
+    border-radius: 10px;
+}
+
+.results {
+    padding: 20px;
+}
+
+.repo-item {
+    background-color: #4d6de3;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.picture {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}
+
+.info {
+    margin: 10px;
+}
+
+.name {
+    font-size: 26px;
+    margin-left: 10px;
+    border-left: 5px dotted #393737;
+    padding-left: 20px;
+    color: #393737;
+}
+
+.commits {
+    margin: 10px;
+    background-color: #c7eeff;
+    width: 100%;
+}
+
+.message {
+    font-size: 16px;
+    color: #393737;
+    margin: 20px;
+}
+
+.picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sneaky {
+    visibility: hidden;
+    height: 0px;
+}

@@ -1,0 +1,68 @@
+/* Do not use margin, use padding to get links distance */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+#ticker {
+    position: relative;
+    overflow-x: hidden;
+    height: 1.6em;
+    border-bottom: 2px solid black;
+}
+
+/* move this not per link */
+#headlines {
+    position: absolute;
+    left: 100%;
+    /* start at 50% to test, then change to 100 at the end */
+    white-space: nowrap;
+    font-size: 0;
+}
+
+#headlines a {
+    padding-right: 40px;
+    font-family: georgia, serif;
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+}
+
+#headlines a:hover {
+    text-decoration: underline;
+}
+
+#filler {
+    height: 660px;
+}
+
+#right {
+    overflow-x: hidden;
+    height: 1.6em;
+    border-top: 2px solid black;
+    position: relative;
+    bottom: 1px;
+}
+
+#bottomlines {
+    position: absolute;
+    left: -1px;
+    white-space: nowrap;
+    font-size: 0;
+}
+
+#bottomlines a {
+    padding-right: 40px;
+    font-family: georgia, serif;
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+}
+
+#bottomlines a:hover {
+    text-decoration: underline;
+}

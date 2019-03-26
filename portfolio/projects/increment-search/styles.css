@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.search {
+    margin: 20px;
+    width: 200px;
+}
+
+.result {
+    border-left: 1px solid blue;
+    border-right: 1px solid blue;
+    background-color: pink;
+    padding: 5px;
+}
+
+.disappear {
+    visibility: hidden;
+}
+
+.none {
+    border-left: 1px solid blue;
+    border-right: 1px solid blue;
+    background-color: violet;
+    color: grey;
+    padding: 5px;
+}
+
+.highlight {
+    background-color: green;
+}
