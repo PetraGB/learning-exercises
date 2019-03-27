@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#container {
+    margin-top: 20px;
+    width: 1000px;
+    height: 550px;
+    border: 5px solid blue;
+    box-sizing: border-box;
+}
+
+#top {
+    position: absolute;
+    z-index: 5;
+    overflow: hidden;
+}
+
+#bottom {
+    position: absolute;
+    z-index: 3;
+}
+
+#bar {
+    position: absolute;
+    height: 540px;
+    width: 15px;
+    left: 50%;
+    z-index: 10;
+    background-color: blue;
+}
+
+img {
+    width: 990px;
+    height: 540px;
+}

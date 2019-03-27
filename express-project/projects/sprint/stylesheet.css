@@ -1,0 +1,302 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+
+header {
+    /* border: 1px tomato solid; */
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+#logo {
+    content: url(assets/sprint.svg);
+    height: 50px;
+    float: left;
+}
+
+#hamburger {
+    content: url(assets/hamburgermenu.svg);
+    height: 50px;
+    float: right;
+}
+
+.wel {
+    background-image: url(assets/reichstag.jpg);
+    background-size: cover;
+    position: relative;
+    padding-bottom: 60%;
+    width: 100%;
+    height: 0;
+    /* font-family: "Georgia", serif;
+    text-align: center;
+    font-style: italic;
+    color: white;
+    font-size: 3em;
+    position: absolute;
+    text-align: center; */
+}
+/*
+#reichstag {
+    width: 100%;
+} */
+
+.wel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+/*
+.wel div {
+    position: absolute;
+    text-align: center;
+} */
+
+#welText {
+    font-family: "Georgia", serif;
+    text-align: center;
+    font-style: italic;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+}
+
+#welText p {
+    margin: 0;
+}
+
+#welButton {
+    color: darkorange;
+    background-color: gold;
+    width: 180px;
+    height: 40px;
+    border: 4px darkorange solid;
+    border-radius: 20px;
+    font-size: 25px;
+    padding: 3px;
+    margin-top: 10px;
+    /* margin-left: auto;
+    margin-right: auto; */
+    display: inline-block;
+    font-size: 22px;
+    /* position: absolute; */
+}
+
+.information {
+    background-color: lightgrey;
+    padding: 10px;
+    /* position: relative; */
+}
+
+article {
+    display: inline-block;
+    margin-left: 5%;
+    position: relative;
+    width: 40%;
+    padding-bottom: 20px;
+}
+
+.icons {
+    width: 40px;
+    display: inline-block;
+    margin: 10px;
+    float: left;
+}
+
+.text {
+    display: inline-block;
+    width: 70%;
+    margin-top: 20px;
+}
+
+article h2 {
+    display: inline-block;
+    font-size: 18px;
+    margin: 0;
+    top: 10px;
+}
+
+article p {
+    /* position: absolute; */
+    top: 10px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0;
+}
+
+footer {
+    background-color: gray;
+    height: 30px;
+    width: 100%;
+    position: relative;
+}
+
+footer p {
+    font-size: 11px;
+    color: white;
+    margin: 0;
+    /* padding-left: 20px;
+    padding-top: 5px; */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5%;
+}
+
+/* ---------- menu ------------------------- */
+
+#hamburgerMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 4;
+    visibility: hidden;
+}
+
+#menu {
+    background-color: white;
+    width: 45%;
+    max-width: 400px;
+    min-width: 160px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+}
+
+#x {
+    float: right;
+    margin-right: 30px;
+    margin-top: 20px;
+    color: grey;
+    font-family: sans-serif;
+}
+
+#menu a {
+    font-family: Georgia, serif;
+    font-size: 20px;
+}
+#menu dl {
+    margin-top: 40px;
+}
+
+.on #hamburgerMenu {
+    visibility: visible;
+}
+
+.on #menu {
+    transform: translate(0);
+    transition-duration: 2s;
+}
+
+/*-------------------------------------------*/
+
+#welcome {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 4;
+    visibility: hidden;
+}
+
+#card {
+    position: absolute;
+    background-color: white;
+    border-radius: 50px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+    height: 250px;
+    padding: 30px;
+}
+
+#cardX {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+
+/* ---------- mobile versions -------------- */
+
+@media screen and (max-width: 480px) {
+    #logo {
+        height: 30px;
+    }
+    #hamburger {
+        height: 30px;
+    }
+    #welText {
+        font-size: 24px;
+    }
+    #welButton {
+        font-size: 20px;
+    }
+    article {
+        display: block;
+        width: 90%;
+    }
+    .text {
+        margin-top: 15px;
+    }
+    article h2 {
+        font-size: 16px;
+    }
+    article p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #logo {
+        height: 25px;
+    }
+    #hamburger {
+        height: 25px;
+    }
+    #welText {
+        font-size: 20px;
+    }
+    #welButton {
+        width: 110px;
+        height: 30px;
+        padding: 2px;
+        font-size: 16px;
+    }
+    article {
+        display: block;
+        width: 95%;
+    }
+    .icons {
+        width: 30px;
+        margin: 6px;
+    }
+    .text {
+        margin-top: 10px;
+    }
+    article h2 {
+        font-size: 14px;
+    }
+    article p {
+        font-size: 12px;
+    }
+}
