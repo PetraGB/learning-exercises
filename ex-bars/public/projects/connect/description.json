@@ -1,0 +1,4 @@
+{
+    "name": "Connect",
+    "description": "This is a connect four type of game, where you can choose how big the board is as well as how many dots you want to connect in order to win. The hardest part was checking for diagonal wins in a way that would work in any board size."
+}

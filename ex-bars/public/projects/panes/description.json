@@ -1,0 +1,4 @@
+{
+    "name": "Picture panels",
+    "description": "Sliding from one image into another. It was had to get the event listener to work properly, since a fast mouse movement causes for the pointer to be outside the bar."
+}
