@@ -41,4 +41,4 @@ const server = http.createServer((req, res) => {
     }
 });
 
-server.listen(8080, () => ca.rainbow("listening for whispers"));
+server.listen(8080, () => ca.rainbow("listening for keywords"));
